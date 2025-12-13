@@ -14,7 +14,7 @@ Repo donde está mi solución para la prueba frontend y backend aplicada por TIC
 # Frontend
 
 1. Clonar repo
-2. Entrar a la carpetea frontendTest
+2. Entrar a la carpeta frontendTest
 3. Instalar dependencias:
    npm install
 4. Ejecutar:
