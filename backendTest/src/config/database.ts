@@ -1,30 +1,18 @@
-import sql from "mssql";
-import dotenv from "dotenv";
+import mysql from "mysql2/promise";
 
-dotenv.config();
-
-const config: sql.config = {
+export const pool = mysql.createPool({
+  host: process.env.DB_HOST,
   user: process.env.DB_USER,
   password: process.env.DB_PASSWORD,
-  server: process.env.DB_SERVER || "localhost",
-  database: process.env.DB_DATABASE,
-  options: {
-    encrypt: true,
-    trustServerCertificate: true,
-  },
-};
+  database: process.env.DB_NAME,
+});
 
-console.log(config);
-
-export const poolPromise = new sql.ConnectionPool(config)
-  .connect()
-  .then((pool) => {
-    console.log("Connected to SQL Server");
-    return pool;
+pool
+  .getConnection()
+  .then((conn) => {
+    console.log("Connected to MySQL");
+    conn.release();
   })
   .catch((err) => {
-    console.error("Database connection failed:", err);
-    throw err;
+    console.error("MySQL connection failed:", err);
   });
-
-export default sql;
