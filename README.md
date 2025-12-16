@@ -2,6 +2,11 @@
 
 Repo donde está mi solución para la prueba frontend y backend aplicada por TICSA para la vacante de Desarrollador Web
 
+# Base de datos
+
+El proyecto utiliza MySQL.
+Para desarrollo local se puede usar XAMPP (MySQL + phpMyAdmin).
+
 # Instrucciones para correr backend
 
 1. Clonar el repositorio
